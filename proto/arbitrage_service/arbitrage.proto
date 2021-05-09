@@ -3,16 +3,16 @@ syntax = "proto3";
 package com.botocrypt.arbitrage.api;
 
 service ArbitrageService {
-    rpc SendCoinPairInfoFromExchange (stream CoinPairInfo) returns (CoinPairInfoResponse);
+    rpc SendCoinPairInfoFromExchange (stream CoinPairDto) returns (CoinPairResponseDto);
 }
 
-message CoinPairInfo {
+message CoinPairDto {
     string cycle_id = 1;
     string exchange = 2;
-    CoinPairOrder coin_pair_order = 3;
+    CoinPairOrderDto coin_pair_order = 3;
 }
 
-message CoinPairOrder {
+message CoinPairOrderDto {
     string first_coin = 1;
     string second_coin = 2;
     double bid_average_price = 3;
@@ -22,7 +22,7 @@ message CoinPairOrder {
     string exchange = 7;
 }
 
-message CoinPairInfoResponse {
+message CoinPairResponseDto {
     string cycle_id = 1;
     string status = 2;
 }
